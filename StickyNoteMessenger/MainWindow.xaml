@@ -1,0 +1,111 @@
+﻿<Window x:Class="StickyNoteMessenger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sticky Note Messenger" 
+        Height="400" Width="300"
+        MinHeight="250" MinWidth="200"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="CanResizeWithGrip"
+        ShowInTaskbar="True"
+        KeyDown="Window_KeyDown"
+        MouseDown="Window_MouseDown">
+    
+    <!-- Main container with sticky note appearance -->
+    <Border Name="MainBorder" 
+            Background="#FFFFE1" 
+            BorderBrush="#E6D659" 
+            BorderThickness="1"
+            CornerRadius="3"
+            Margin="5">
+
+    
+    <!-- Drop shadow effect -->
+    <Border.Effect>
+        <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="3" Opacity="0.3"/>
+    </Border.Effect>
+    
+    <!-- Main content grid -->
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <!-- Header static text -->
+            <RowDefinition Height="Auto"/>
+            <!-- Separator line -->
+            <RowDefinition Height="Auto"/>
+            <!-- Message area (expandable) -->
+            <RowDefinition Height="*"/>
+            <!-- Separator line -->
+            <RowDefinition Height="Auto"/>
+            <!-- Footer static text -->
+            <RowDefinition Height="Auto"/>
+            <!-- Input area -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- HEADER: Static work notes -->
+        <TextBlock Grid.Row="0" 
+                   Name="HeaderText"
+                   Text="Project Meeting Notes - Dec 2024"
+                   FontFamily="Segoe UI" 
+                   FontSize="11" 
+                   FontWeight="Bold"
+                   Foreground="#2C5234"
+                   Margin="0,0,0,8"/>
+        
+        <!-- Header separator -->
+        <Rectangle Grid.Row="1" 
+                   Height="1" 
+                   Fill="#D4C564" 
+                   Margin="0,0,0,8"/>
+        
+        <!-- MESSAGE AREA: Scrollable content -->
+        <ScrollViewer Grid.Row="2" 
+                      Name="MessageScrollViewer"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled"
+                      Margin="0,0,0,8">
+            <TextBlock Name="MessagesTextBlock"
+                       FontFamily="Segoe UI"
+                       FontSize="10"
+                       Foreground="#2C5234"
+                       TextWrapping="Wrap"
+                       Text="• Check requirements doc&#x0a;• TODO: 09:15 - Review specs&#x0a;• ACTION ITEM: 09:30 - Follow up&#x0a;• TODO: 10:00 - Testing phase"/>
+        </ScrollViewer>
+        
+        <!-- Footer separator -->
+        <Rectangle Grid.Row="3" 
+                   Height="1" 
+                   Fill="#D4C564" 
+                   Margin="0,0,0,8"/>
+        
+        <!-- FOOTER: Static reminder text -->
+        <TextBlock Grid.Row="4" 
+                   Name="FooterText"
+                   Text="Remember: Demo at 3PM tomorrow"
+                   FontFamily="Segoe UI" 
+                   FontSize="10" 
+                   FontStyle="Italic"
+                   Foreground="#5A5A5A"
+                   Margin="0,0,0,8"/>
+        
+        <!-- INPUT AREA: Text box for typing -->
+        <TextBox Grid.Row="5"
+                 Name="InputTextBox"
+                 MinHeight="30"
+                 MaxHeight="60"
+                 FontFamily="Segoe UI"
+                 FontSize="10"
+                 Foreground="#2C5234"
+                 Background="Transparent"
+                 BorderBrush="#D4C564"
+                 BorderThickness="1"
+                 Padding="4"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="False"
+                 Text="Type action item..."
+                 GotFocus="InputTextBox_GotFocus"
+                 KeyDown="InputTextBox_KeyDown"/>
+    </Grid>
+</Border>
+</Window>

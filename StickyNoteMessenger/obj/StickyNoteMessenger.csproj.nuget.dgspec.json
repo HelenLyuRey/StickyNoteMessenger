@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ZZ013G738\\Documents\\IBMOverall\\HACKATHON\\StickyNoteMessenger\\StickyNoteMessenger\\StickyNoteMessenger.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ZZ013G738\\Documents\\IBMOverall\\HACKATHON\\StickyNoteMessenger\\StickyNoteMessenger\\StickyNoteMessenger.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ZZ013G738\\Documents\\IBMOverall\\HACKATHON\\StickyNoteMessenger\\StickyNoteMessenger\\StickyNoteMessenger.csproj",
+        "projectName": "StickyNoteMessenger",
+        "projectPath": "C:\\Users\\ZZ013G738\\Documents\\IBMOverall\\HACKATHON\\StickyNoteMessenger\\StickyNoteMessenger\\StickyNoteMessenger.csproj",
+        "packagesPath": "C:\\Users\\ZZ013G738\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ZZ013G738\\Documents\\IBMOverall\\HACKATHON\\StickyNoteMessenger\\StickyNoteMessenger\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ZZ013G738\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Discord.Net": {
+              "target": "Package",
+              "version": "[3.17.4, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.410/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
