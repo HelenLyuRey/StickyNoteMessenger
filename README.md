@@ -36,21 +36,23 @@ cd StickyNoteMessenger
 dotnet restore
 ```
 
-3. Configure Discord
+3. **Configure Discord**
    - Create a Discord application at https://discord.com/developers/applications
    - Create a bot and copy the token
    - Enable "Message Content Intent" in bot settings
    - Get your Discord User ID (Enable Developer Mode → Right-click username → Copy User ID)
+   - If you fail to send message due to some permission issue, you can add You, Your Friend and BOT to a shared `server` 
 
-4. Update config.json
+4. **Update config.json**
 ```json
 {
 "DiscordToken": "YOUR_BOT_TOKEN_HERE",
 "TestUserId": "YOUR_DISCORD_USER_ID",
 "BotEnabled": true
 }
-    ```
-5. Run the application
+```
+
+5. **Run the application**
 ```bash
 dotnet build
 dotnet run
@@ -63,5 +65,9 @@ dotnet run
 - Move window: Click and drag anywhere on the note
 - Resize: Drag bottom-right corner
 - View notifications: Badge appears when minimized and new messages arrive
+
+### Some draw-backs
+- Cannot contain history yet
+- Cannot trace it in Discord since it's bot sending directly to the user (if you would like to check history afterwards in Discord, you might need to connect to a server with You, Your Friend and BOT)
 
 ## ENJOY
