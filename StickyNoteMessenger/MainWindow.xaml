@@ -14,12 +14,11 @@
     
     <!-- Main container with sticky note appearance -->
     <Border Name="MainBorder" 
-            Background="#FFFFE1" 
-            BorderBrush="#E6D659" 
-            BorderThickness="1"
-            CornerRadius="3"
-            Margin="5">
-
+        Background="#FFFFE1" 
+        BorderBrush="#E6D659" 
+        BorderThickness="1"
+        CornerRadius="3"
+        Margin="5">
     
     <!-- Drop shadow effect -->
     <Border.Effect>
@@ -41,17 +40,38 @@
             <RowDefinition Height="Auto"/>
             <!-- Input area -->
             <RowDefinition Height="Auto"/>
+            <!-- Status bar -->
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
-        <!-- HEADER: Static work notes -->
-        <TextBlock Grid.Row="0" 
-                   Name="HeaderText"
-                   Text="Project Meeting Notes - Dec 2024"
-                   FontFamily="Segoe UI" 
-                   FontSize="11" 
-                   FontWeight="Bold"
-                   Foreground="#2C5234"
-                   Margin="0,0,0,8"/>
+        <!-- HEADER: Static work notes with notification badge -->
+        <Grid Grid.Row="0" Margin="0,0,0,8">
+            <TextBlock Name="HeaderText"
+                       Text="Project Meeting Notes - Dec 2024"
+                       FontFamily="Segoe UI" 
+                       FontSize="11" 
+                       FontWeight="Bold"
+                       Foreground="#2C5234"/>
+            
+            <!-- NOTIFICATION BADGE -->
+            <Border Name="NotificationBadge"
+                    Background="#FF4444"
+                    CornerRadius="8"
+                    Width="16"
+                    Height="16"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="0,-5,-5,0"
+                    Visibility="Collapsed">
+                <TextBlock Name="NotificationCount"
+                           Text="1"
+                           Foreground="White"
+                           FontSize="9"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+            </Border>
+        </Grid>
         
         <!-- Header separator -->
         <Rectangle Grid.Row="1" 
@@ -64,7 +84,8 @@
                       Name="MessageScrollViewer"
                       VerticalScrollBarVisibility="Auto"
                       HorizontalScrollBarVisibility="Disabled"
-                      Margin="0,0,0,8">
+                      Margin="0,0,0,8"
+                      ScrollChanged="MessageScrollViewer_ScrollChanged">
             <TextBlock Name="MessagesTextBlock"
                        FontFamily="Segoe UI"
                        FontSize="10"
@@ -79,10 +100,10 @@
                    Fill="#D4C564" 
                    Margin="0,0,0,8"/>
         
-        <!-- FOOTER: Static reminder text -->
+        <!-- FOOTER: Status text -->
         <TextBlock Grid.Row="4" 
-                   Name="FooterText"
-                   Text="Remember: Demo at 3PM tomorrow"
+                   Name="StatusText"
+                   Text="Ready"
                    FontFamily="Segoe UI" 
                    FontSize="10" 
                    FontStyle="Italic"
@@ -105,7 +126,20 @@
                  AcceptsReturn="False"
                  Text="Type action item..."
                  GotFocus="InputTextBox_GotFocus"
-                 KeyDown="InputTextBox_KeyDown"/>
+                 KeyDown="InputTextBox_KeyDown"
+                 IsEnabled="True"
+                 Margin="0,0,0,5"/>
+        
+        <!-- CONNECTION INDICATOR: Just a small dot -->
+        <Grid Grid.Row="6">
+            <Ellipse Name="ConnectionIndicator"
+                     Width="6"
+                     Height="6"
+                     Fill="#CCCCCC"
+                     HorizontalAlignment="Right"
+                     VerticalAlignment="Center"
+                     ToolTip="Connection status"/>
+        </Grid>
     </Grid>
 </Border>
 </Window>
